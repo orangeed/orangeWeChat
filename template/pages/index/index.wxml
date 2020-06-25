@@ -1,0 +1,25 @@
+<scroll-view scroll-y class="scrollPage">
+	<cu-custom bgColor="bg-gradual-blue">
+		<view slot="content">首页</view>
+	</cu-custom>
+	<swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+		<swiper-item wx:for="{{swiperList}}" wx:key>
+			<image class="image" src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+			<video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+		</swiper-item>
+	</swiper>
+	<!-- <view class="margin-xl padding-xl bg-white radius shadow shadow-lg">
+		<view class="flex justify-center">
+			<button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='cu-btn round bg-green shadow'> 获取头像昵称 </button>
+			<block wx:else>
+				<view class='text-center'>
+					<view class="cu-avatar xl round solids" style="background-image:url({{userInfo.avatarUrl}})"></view>
+					<view class="padding">{{userInfo.nickName}}</view>
+				</view>
+			</block>
+		</view>
+	</view>
+	<view class="text-center margin-top">
+		<text class="text-grey text-xl">{{motto}}</text>
+	</view> -->
+</scroll-view>

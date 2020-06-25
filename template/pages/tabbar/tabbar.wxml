@@ -1,0 +1,24 @@
+<share wx:if="{{PageCur=='share'}}"></share>
+<communication wx:if="{{PageCur=='communication'}}"></communication>
+<my wx:if="{{PageCur=='my'}}"></my>
+
+<view class="cu-bar tabbar bg-white shadow foot">
+	<view class="action" bindtap="NavChange" data-cur="share">
+		<view class='cuIcon-cu-image'>
+			<image src="/images/tabbar/basics{{PageCur=='share'?'_cur':''}}.png"></image>
+		</view>
+		<view class="{{PageCur=='share'?'text-green':'text-gray'}}">分享</view>
+	</view>
+	<view class="action" bindtap="NavChange" data-cur="communication">
+		<view class='cuIcon-cu-image'>
+			<image src="/images/tabbar/component{{PageCur=='communication'?'_cur':''}}.png"></image>
+		</view>
+		<view class="{{PageCur=='component'?'text-green':'text-gray'}}">交流</view>
+	</view>
+	<view class="action" bindtap="NavChange" data-cur="my">
+		<view class='cuIcon-cu-image'>
+			<image src="/images/tabbar/plugin{{PageCur=='my'?'_cur':''}}.png"></image>
+		</view>
+		<view class="{{PageCur=='my'?'text-green':'text-gray'}}">我的</view>
+	</view>
+</view>
