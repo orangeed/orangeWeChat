@@ -43,12 +43,15 @@ Page({
     if (this.data.load) {
       for (let i = 0; i < list.length; i++) {
         let view = wx.createSelectorQuery().select("#main-" + list[i].id);
+        console.log('view', view);
         view.fields({
           size: true
         }, data => {
+          console.log('data', data);
+
           list[i].top = tabHeight;
           tabHeight = tabHeight + data.height;
-          list[i].bottom = tabHeight;     
+          list[i].bottom = tabHeight;
         }).exec();
       }
       that.setData({

@@ -1,7 +1,7 @@
 {
   "usingComponents": {
     "share": "/pages/index/index",
-    "communication": "/pages/communication/communication",
+    "communication": "/pages/recommended/recommended",
     "my": "/pages/my/my"
   }
 }

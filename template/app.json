@@ -2,7 +2,7 @@
   "pages": [
     "pages/tabbar/tabbar",
     "pages/index/index",
-    "pages/communication/communication",
+    "pages/recommended/recommended",
     "pages/my/my"
   ],
   "window": {

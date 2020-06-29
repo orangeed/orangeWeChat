@@ -11,9 +11,9 @@
 	</view>
 	<view class="action" bindtap="NavChange" data-cur="communication">
 		<view class='cuIcon-cu-image'>
-			<image src="/images/tabbar/component{{PageCur=='communication'?'_cur':''}}.png"></image>
+			<image src="/images/tabbar/component{{PageCur=='recommended'?'_cur':''}}.png"></image>
 		</view>
-		<view class="{{PageCur=='component'?'text-green':'text-gray'}}">交流</view>
+		<view class="{{PageCur=='recommended'?'text-green':'text-gray'}}">推荐</view>
 	</view>
 	<view class="action" bindtap="NavChange" data-cur="my">
 		<view class='cuIcon-cu-image'>
