@@ -1,5 +1,5 @@
-@import "../../colorui/main.wxss";
-@import "../../colorui/icon.wxss";
+/* @import "../../colorui/main.wxss";
+@import "../../colorui/icon.wxss"; */
 
 .UCenter-bg {
   background-image: url(https://image.weilanwl.com/color2.0/index.jpg);
@@ -48,4 +48,32 @@ map,
 .mapBox {
   width: 750rpx;
   height: 300rpx;
+}
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 20%;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #fff;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+
+.head {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

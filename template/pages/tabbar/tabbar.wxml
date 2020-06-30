@@ -9,7 +9,7 @@
 		</view>
 		<view class="{{PageCur=='share'?'text-green':'text-gray'}}">分享</view>
 	</view>
-	<view class="action" bindtap="NavChange" data-cur="communication">
+	<view class="action" bindtap="NavChange" data-cur="recommended">
 		<view class='cuIcon-cu-image'>
 			<image src="/images/tabbar/component{{PageCur=='recommended'?'_cur':''}}.png"></image>
 		</view>

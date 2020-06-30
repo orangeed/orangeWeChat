@@ -1,19 +1,21 @@
 <scroll-view scroll-y class="scrollPage">
 	<view class="UCenter-bg">
-		<image src="/images/logo.png" class="png" mode="widthFix"></image>
-		<view class="text-xl">个人中心
+		<view class="container head">
+			<view class="userinfo">
+				<button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+				<block wx:else>
+					<image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+					<text class="userinfo-nickname">{{userInfo.nickName}}</text>
+				</block>
+			</view>
+			<view class="usermotto">
+				<text class="user-motto">{{motto}}</text>
+			</view>
 		</view>
-		<image src="https://raw.githubusercontent.com/weilanwl/ColorUI/master/demo/images/wave.gif" mode="scaleToFill" class="gif-wave"></image>
 	</view>
 	<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
-		<!-- <view class="cu-item arrow">
-			<view class="content" bindtap="CopyLink" data-link="https://github.com/weilanwl/ColorUI">
-				<text class="cuIcon-github text-grey"></text>
-				<text class="text-grey">GitHub</text>
-			</view>
-		</view> -->
 		<view class="cu-item arrow">
-			<view class="content" bindtap="CopyLink">
+			<view class="content" bindtap="CopyLink" data-link="https://github.com/orangeed/orangeWeChat">
 				<text class="cuIcon-github text-grey"></text>
 				<text class="text-grey">GitHub</text>
 			</view>
@@ -31,7 +33,7 @@
 			</view>
 		</view> -->
 		<view class="cu-item arrow">
-			<view class="content" >
+			<view class="content">
 				<text class="cuIcon-appreciatefill text-red"></text>
 				<text class="text-grey">我的联系方式</text>
 			</view>
