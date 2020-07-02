@@ -1,9 +1,9 @@
 {
   "pages": [
-    "pages/my/my",
     "pages/tabbar/tabbar",
     "pages/index/index",
-    "pages/recommended/recommended"
+    "pages/recommended/recommended",
+    "pages/my/my"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -14,7 +14,8 @@ Page({
       id: 1,
       name: "装机分享"
     }],
-    load: true
+    load: true,
+    accessToken: ''
   },
   onLoad() {
     wx.showLoading({
@@ -31,6 +32,7 @@ Page({
       list: list,
       listCur: list[0]
     })
+    this.getAccess_Token()
   },
   onReady() {
     wx.hideLoading()
@@ -74,5 +76,52 @@ Page({
         return false
       }
     }
+  },
+  getAccess_Token() {
+    wx.request({
+      url: 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx3fab55f96db280c1&secret=92a0d432d69b4105b30d0e66ce9c4dc0',
+      method: 'GET',
+      header: {
+        'content-type': 'application/json'
+      },
+      success(res) {
+        console.log('res', res);
+        this.setData({
+          accessToken: res.data.access_token
+        })
+      },
+      fail(res) {
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none'
+        })
+      },
+      complete(res) {
+        this.getList()
+      }
+    })
+  },
+  getList() {
+    wx.request({
+      url: 'https://api.weixin.qq.com/cgi-bin/material/batchget_material?access_token=' + this.data.accessToken,
+      data: {
+        "type": 'news',
+        "offset": 0,
+        "count": 20
+      },
+      method: 'POST',
+      header: {
+        'content-type': 'application/json'
+      },
+      success(res) {
+        console.log('微信素材列表', res)
+      },
+      fail(res) {
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none'
+        })
+      },
+    })
   }
 })
