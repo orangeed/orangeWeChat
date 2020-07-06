@@ -7,7 +7,7 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
   },
   onLoad: function () {
     if (app.globalData.userInfo) {
@@ -58,26 +58,8 @@ Page({
   },
   showQrcode() {
     wx.previewImage({
-      urls: ['https://s1.ax1x.com/2020/07/02/NbLltg.jpg'],
-      current: 'https://s1.ax1x.com/2020/07/02/NbLltg.jpg' // 当前显示图片的http链接      
-    })
-  },
-  getAccess_Token() {
-    wx.request({
-      url: 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx3fab55f96db280c1&secret=92a0d432d69b4105b30d0e66ce9c4dc0',
-      method: 'GET',
-      header: {
-        'content-type': 'application/json'
-      },
-      success(res) {
-        console.log('res', res);
-      },
-      fail(res) {
-        wx.showToast({
-          title: res.data.msg,
-          icon: 'none'
-        })
-      }
+      urls: ['https://s1.ax1x.com/2020/07/04/NxncdA.jpg'],
+      current: 'https://s1.ax1x.com/2020/07/04/NxncdA.jpg' // 当前显示图片的http链接      
     })
   }
 })
