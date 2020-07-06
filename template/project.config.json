@@ -31,7 +31,7 @@
 		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.11.2",
+	"libVersion": "2.11.3",
 	"appid": "wxb8ef4ff41c726b7a",
 	"projectname": "ColorUI-template",
 	"debugOptions": {

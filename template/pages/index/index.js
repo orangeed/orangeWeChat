@@ -18,10 +18,10 @@ Page({
     accessToken: ''
   },
   onLoad() {
-    wx.showLoading({
-      title: '加载中...',
-      mask: true
-    });
+    // wx.showLoading({
+    //   title: '加载中...',
+    //   mask: true
+    // });
     let list = [{}];
     for (let i = 0; i < 26; i++) {
       list[i] = {};
@@ -32,13 +32,7 @@ Page({
       list: list,
       listCur: list[0]
     })
-    // wx.getStorage({
-    //   key: 'article',
-    //   success: (res) => {
-    //     console.log('------', res);
-
-    //   }
-    // })
+    this.getAccess_Token()
   },
   /**
    * 生命周期函数--监听页面显示
@@ -85,4 +79,60 @@ Page({
       }
     }
   },
+  //获取accessToken
+  getAccess_Token() {
+    let _this = this
+    wx.request({
+      url: 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx3fab55f96db280c1&secret=92a0d432d69b4105b30d0e66ce9c4dc0',
+      method: 'GET',
+      header: {
+        'content-type': 'application/json'
+      },
+      success(res) {
+        console.log('res', res);
+        _this.setData({
+          accessToken: res.data.access_token
+        })
+        _this.getList()
+      },
+      fail(res) {
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none'
+        })
+      },
+      complete(res) {}
+    })
+  },
+  //通过获取的accessToken获取文章列表
+  getList() {
+    wx.request({
+      url: 'https://api.weixin.qq.com/cgi-bin/material/batchget_material?access_token=' + this.data.accessToken,
+      data: {
+        "type": 'news',
+        "offset": 0,
+        "count": 20
+      },
+      method: 'POST',
+      header: {
+        'content-type': 'application/json'
+      },
+      success(res) {
+        console.log('微信素材列表', res)
+        // wx.setStorage({
+        //   key: 'article',
+        //   data: res.data,
+        //   success: (res) => {
+        //     console.log('数据缓存成功!', res);
+        //   }
+        // })
+      },
+      fail(res) {
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none'
+        })
+      },
+    })
+  }
 })
