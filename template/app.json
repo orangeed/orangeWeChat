@@ -1,8 +1,9 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/recommended/recommended",
-    "pages/my/my"
+    "pages/index/index",
+    "pages/my/my",
+    "pages/details/details"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -18,22 +19,26 @@
     "color": "#a9b7b7",
     "selectedColor": "#11cd6e",
     "borderStyle": "black",
-    "list": [{
-      "pagePath": "pages/index/index",
-      "text": "首页",
-      "iconPath": "images/tabbar/basics.png",
-      "selectedIconPath": "images/tabbar/basics_cur.png"
-    }, {
-      "pagePath": "pages/recommended/recommended",
-      "text": "首页",
-      "iconPath": "images/tabbar/component.png",
-      "selectedIconPath": "images/tabbar/component_cur.png"
-    }, {
-      "pagePath": "pages/my/my",
-      "text": "首页",
-      "iconPath": "images/tabbar/my.png",
-      "selectedIconPath": "images/tabbar/my_cur.png"
-    }]
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/tabbar/basics.png",
+        "selectedIconPath": "images/tabbar/basics_cur.png"
+      },
+      {
+        "pagePath": "pages/recommended/recommended",
+        "text": "首页",
+        "iconPath": "images/tabbar/component.png",
+        "selectedIconPath": "images/tabbar/component_cur.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "首页",
+        "iconPath": "images/tabbar/my.png",
+        "selectedIconPath": "images/tabbar/my_cur.png"
+      }
+    ]
   },
   "sitemapLocation": "sitemap.json"
 }

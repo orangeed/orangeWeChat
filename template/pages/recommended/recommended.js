@@ -1,7 +1,9 @@
 //index.js
 //获取应用实例
 const app = getApp()
-
+import {
+  formatTime
+} from '../../utils/util.js'
 Page({
 
   /**
@@ -9,7 +11,7 @@ Page({
    */
   data: {
     accessToken: '',
-    list: []
+    list: [],
   },
 
   /**
@@ -17,6 +19,9 @@ Page({
    */
   onLoad: function (options) {
     this.getAccess_Token()
+    setTimeout(() => {
+      console.log('qqqq', this.data.list);
+    }, 1000)
   },
 
   /**
@@ -30,6 +35,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+
 
   },
 
@@ -111,6 +117,11 @@ Page({
         _this.setData({
           list: res.data.item
         })
+        _this.data.list.forEach(v => {
+          // console.log(v.content.create_time);
+          v.update_time = formatTime(v.update_time)
+        })
+
         // wx.setStorage({
         //   key: 'article',
         //   data: res.data,
@@ -118,8 +129,7 @@ Page({
         //     console.log('数据缓存成功!', res);
         //   }
         // })
-        console.log('list',_this.data.list);
-        
+        console.log('list', _this.data.list);
       },
       fail(res) {
         wx.showToast({
