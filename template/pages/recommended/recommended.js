@@ -19,9 +19,6 @@ Page({
    */
   onLoad: function (options) {
     this.getAccess_Token()
-    setTimeout(() => {
-      console.log('qqqq', this.data.list);
-    }, 1000)
   },
 
   /**
@@ -35,7 +32,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
 
   },
 
@@ -114,14 +110,18 @@ Page({
       },
       success(res) {
         console.log('微信素材列表', res)
-        _this.setData({
-          list: res.data.item
-        })
-        _this.data.list.forEach(v => {
-          // console.log(v.content.create_time);
+        let data = res.data.item;
+        let id = 0
+        data.forEach(v => {
           v.update_time = formatTime(v.update_time)
+          v.content.news_item.forEach((val, i) => {
+            val.id = id
+            id++
+          })
         })
-
+        _this.setData({
+          list: data
+        })
         // wx.setStorage({
         //   key: 'article',
         //   data: res.data,
@@ -137,6 +137,41 @@ Page({
           icon: 'none'
         })
       },
+    })
+  },
+  //点击详情事件
+  toDetail(e) {
+    //获取id
+    const id = e.currentTarget.dataset['id']
+    console.log(id);
+    const arr = []
+    //遍历数据
+    this.data.list.forEach(v => {
+      console.log(v.content.news_item);
+      arr.push(v.content.news_item)
+    })
+    console.log('arr', arr);
+    let detail;
+    arr.map(v => {
+      // console.log('v', v[0].id);
+      //将符合条件的数组筛选出来
+      detail = v.filter(val => {
+        return val.id === id
+      })
+      console.log('detail', detail);
+      //当数组的数据不是空的时候存入缓存中
+      if (detail.length > 0) {
+        wx.setStorage({
+          key: 'articleDetail',
+          data: detail,
+          success: (res) => {
+            console.log('数据缓存成功!', res);
+            wx.navigateTo({
+              url: '../details/details',
+            })
+          }
+        })
+      }
     })
   }
 })

@@ -5,13 +5,29 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    articleDetail: [],
+    content:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    const _this = this
+    wx.getStorage({
+      key: 'articleDetail',
+      success(res) {
+        console.log('res', res);
+        const data = res.data
+        // console.log('data',data[0].content.replace('<img ', '<img style=\"max-width:100%;height:auto;display:block;\" '));
+        _this.setData({
+          articleDetail: data,
+          content: data[0].content.replace('<img ', '<img style="max-width:100%;height:auto"')
+        })
+      }
+    })
+
+    console.log(_this.data.articleDetail);
 
   },
 

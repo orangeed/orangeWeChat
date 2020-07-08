@@ -1,15 +1,13 @@
 <cu-custom bgColor="bg-gradual-pink">
 	<view slot="content">精选</view>
 </cu-custom>
-<view class="cu-card case {{isCard?'no-card':''}}">
+<view class="cu-card case {{isCard?'no-card':''}} top">
 	<block wx:for='{{list}}' wx:key='index'>
-		<view class="text-gray text-sm">
+		<view class="text-gray text-sm flex justify-center">
 			{{item.update_time}}
 		</view>
 		<block wx:for='{{item.content.news_item}}' wx:key='index'>
-
-
-			<view class="cu-item shadow">
+			<view class="cu-item shadow" bindtap="toDetail" data-id="{{item.id}}">
 				<view class="image">
 					<image src="{{item.thumb_url}}" mode="widthFix"></image>
 					<!-- <view class="cu-tag bg-blue">史诗</view> -->

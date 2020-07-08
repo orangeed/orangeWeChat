@@ -1,2 +1,12 @@
-<!--pages/details/details.wxml-->
-<text>pages/details/details.wxml</text>
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">详情</view>
+</cu-custom>
+
+<block wx:for='{{articleDetail}}' wx:key='index'>
+	<!-- <view>
+		{{item.content}}
+	</view> -->
+  <!-- <rich-text nodes="{{content}}" ></rich-text> -->
+</block>
+<rich-text nodes="{{content}}" ></rich-text>

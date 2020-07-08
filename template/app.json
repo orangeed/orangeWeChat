@@ -28,13 +28,13 @@
       },
       {
         "pagePath": "pages/recommended/recommended",
-        "text": "首页",
+        "text": "推荐",
         "iconPath": "images/tabbar/component.png",
         "selectedIconPath": "images/tabbar/component_cur.png"
       },
       {
         "pagePath": "pages/my/my",
-        "text": "首页",
+        "text": "我的",
         "iconPath": "images/tabbar/my.png",
         "selectedIconPath": "images/tabbar/my_cur.png"
       }
