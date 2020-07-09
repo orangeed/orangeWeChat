@@ -1,4 +1,5 @@
 // pages/details/details.js
+var WxParse = require('../../wxParse/wxParse.js')
 Page({
 
   /**
@@ -6,7 +7,7 @@ Page({
    */
   data: {
     articleDetail: [],
-    content:''
+    content: ''
   },
 
   /**
@@ -17,13 +18,19 @@ Page({
     wx.getStorage({
       key: 'articleDetail',
       success(res) {
-        console.log('res', res);
-        const data = res.data
-        // console.log('data',data[0].content.replace('<img ', '<img style=\"max-width:100%;height:auto;display:block;\" '));
-        _this.setData({
-          articleDetail: data,
-          content: data[0].content.replace('<img ', '<img style="max-width:100%;height:auto"')
-        })
+        // console.log('res', res);
+        // const data = res.data[0].content
+        // console.log('data', data[0].content);
+        const content = res.data[0].content.replace(/data-src/gi, 'src')
+        // const content = data[0].content.replace(/<img/gi, '<img style="max-width:100vw;height:auto;display:block" ')
+        //   .replace(/data-src/gi, 'src')
+        // console.log('content', content);
+
+        // _this.setData({
+        //   articleDetail: data,
+        //   content: content
+        // })
+        WxParse.wxParse('content', 'html', content, _this, 5)
       }
     })
 

@@ -143,14 +143,11 @@ Page({
   toDetail(e) {
     //获取id
     const id = e.currentTarget.dataset['id']
-    console.log(id);
     const arr = []
     //遍历数据
     this.data.list.forEach(v => {
-      console.log(v.content.news_item);
       arr.push(v.content.news_item)
     })
-    console.log('arr', arr);
     let detail;
     arr.map(v => {
       // console.log('v', v[0].id);
@@ -158,7 +155,6 @@ Page({
       detail = v.filter(val => {
         return val.id === id
       })
-      console.log('detail', detail);
       //当数组的数据不是空的时候存入缓存中
       if (detail.length > 0) {
         wx.setStorage({

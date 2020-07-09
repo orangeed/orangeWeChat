@@ -7,6 +7,9 @@
 	<!-- <view>
 		{{item.content}}
 	</view> -->
-  <!-- <rich-text nodes="{{content}}" ></rich-text> -->
+	<!-- <rich-text nodes="{{content}}" ></rich-text> -->
 </block>
-<rich-text nodes="{{content}}" ></rich-text>
+
+<!-- <rich-text nodes="{{content}}"></rich-text> -->
+<import src="../../wxParse/wxParse.wxml"/>
+<template is="wxParse" data="{{wxParseData:content.nodes}}"/>
