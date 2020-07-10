@@ -1,1 +1,32 @@
 /* pages/details/details.wxss */
+.title {
+  padding: 20rpx 20rpx;
+  font-size: 40rpx;
+  /* display: flex;
+  justify-content: center; */
+  /* align-items: center; */
+}
+
+.author {
+  padding: 0rpx 20rpx 20rpx 20rpx;
+  font-size: 30rpx;
+  /*字体颜色：山梗紫*/
+  color: #61649f;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+.content {
+  padding: 0px 20rpx;
+}
+
+.content>.wxParse-p:nth-child(1)>image {
+  width: 50rpx !important;
+  vertical-align: middle;
+}
+
+.content>.wxParse-section:nth-child(1)>image {
+  width: 50rpx !important;
+  vertical-align: middle;
+}

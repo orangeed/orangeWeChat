@@ -11,5 +11,9 @@
 </block>
 
 <!-- <rich-text nodes="{{content}}"></rich-text> -->
-<import src="../../wxParse/wxParse.wxml"/>
-<template is="wxParse" data="{{wxParseData:content.nodes}}"/>
+<import src="../../wxParse/wxParse.wxml" />
+<view class="title">{{articleDetail.title}}</view>
+<view class="author" bindtap="toAuthor">{{articleDetail.author}}</view>
+<view class="content">
+	<template is="wxParse" data="{{wxParseData:content.nodes}}" />
+</view>

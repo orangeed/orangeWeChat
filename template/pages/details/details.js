@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    articleDetail: [],
+    articleDetail: {},
     content: ''
   },
 
@@ -18,24 +18,17 @@ Page({
     wx.getStorage({
       key: 'articleDetail',
       success(res) {
-        // console.log('res', res);
-        // const data = res.data[0].content
-        // console.log('data', data[0].content);
+        console.log('res', res);
+        _this.setData({
+          articleDetail: {
+            ...res.data[0]
+          }
+        })
         const content = res.data[0].content.replace(/data-src/gi, 'src')
-        // const content = data[0].content.replace(/<img/gi, '<img style="max-width:100vw;height:auto;display:block" ')
-        //   .replace(/data-src/gi, 'src')
-        // console.log('content', content);
-
-        // _this.setData({
-        //   articleDetail: data,
-        //   content: content
-        // })
         WxParse.wxParse('content', 'html', content, _this, 5)
       }
     })
-
-    console.log(_this.data.articleDetail);
-
+    console.log('articleDetail', _this.data.articleDetail);
   },
 
   /**
@@ -85,5 +78,12 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  //点击作者跳转
+  toAuthor() {
+    wx.navigateTo({
+      url: 'http://mp.weixin.qq.com/mp/homepage?__biz=MzUxMTk4NjIzNw==&hid=1&sn=0dba6663f8903af2fa1b50796291c53f&scene=18#wechat_redirect',
+    })
   }
 })
