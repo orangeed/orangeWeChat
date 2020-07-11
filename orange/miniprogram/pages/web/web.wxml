@@ -1,0 +1,3 @@
+<!--pages/web/web.wxml-->
+<!-- 个人小程序暂时不支持 -->
+<web-view src="{{ src }}"></web-view>

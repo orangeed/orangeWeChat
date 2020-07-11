@@ -1,0 +1,54 @@
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">详情</view>
+</cu-custom>
+
+<block wx:for='{{articleDetail}}' wx:key='index'>
+	<!-- <view>
+		{{item.content}}
+	</view> -->
+	<!-- <rich-text nodes="{{content}}" ></rich-text> -->
+</block>
+<!-- 弹出框 -->
+<!-- <view class="cu-bar bg-white margin-top">
+	<view class="action">
+		<text class="cuIcon-title text-orange "></text> 普通窗口
+	</view>
+	<view class="action">
+		<button class="cu-btn bg-green shadow" bindtap="showModal" data-target="Modal">Modal</button>
+	</view>
+</view> -->
+<view class="cu-modal {{modalName=='Modal'?'show':''}}">
+	<view class="cu-dialog">
+		<view class="cu-bar bg-white justify-end">
+			<view class="content">
+				<text class="cuIcon-hotfill lg text-red"v></text>
+				出错啦!!!</view>
+			<view class="action" bindtap="hideModal">
+				<text class="cuIcon-close text-red"></text>
+			</view>
+		</view>
+		<view class="padding-xl">
+			个人公众号暂时不支持跳转到其他网页呢!!!
+			<image src="../../wxParse/emojis/09.gif"></image>
+		</view>
+	</view>
+</view>
+<!-- <rich-text nodes="{{content}}"></rich-text> -->
+<import src="../../wxParse/wxParse.wxml" />
+<view class="title">{{articleDetail.title}}</view>
+<view class="author" bindtap="toAuthor" data-target="Modal">{{articleDetail.author}}</view>
+<view class="content">
+	<template is="wxParse" data="{{wxParseData:content.nodes}}" />
+</view>
+
+<view class="cu-bar foot input {{InputBottom!=0?'cur':''}}" style="bottom:{{InputBottom}}px">
+	<view class="action">
+		<text class="cuIcon-sound text-grey"></text>
+	</view>
+	<input model:value='{{comment}}' placeholder='发表您的惊人评论~~' class="solid-bottom" bindfocus="InputFocus" bindblur="InputBlur" adjust-position="{{false}}" focus="{{true}}" maxlength="300" cursor-spacing="10"></input>
+	<view class="action">
+		<text class="cuIcon-emojifill text-grey"></text>
+	</view>
+	<button class="cu-btn bg-green shadow send" bindtap="comment">发送</button>
+</view>
