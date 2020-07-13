@@ -2,22 +2,7 @@
 	<view slot="backText">返回</view>
 	<view slot="content">详情</view>
 </cu-custom>
-
-<block wx:for='{{articleDetail}}' wx:key='index'>
-	<!-- <view>
-		{{item.content}}
-	</view> -->
-	<!-- <rich-text nodes="{{content}}" ></rich-text> -->
-</block>
 <!-- 弹出框 -->
-<!-- <view class="cu-bar bg-white margin-top">
-	<view class="action">
-		<text class="cuIcon-title text-orange "></text> 普通窗口
-	</view>
-	<view class="action">
-		<button class="cu-btn bg-green shadow" bindtap="showModal" data-target="Modal">Modal</button>
-	</view>
-</view> -->
 <view class="cu-modal {{modalName=='Modal'?'show':''}}">
 	<view class="cu-dialog">
 		<view class="cu-bar bg-white justify-end">
@@ -34,14 +19,18 @@
 		</view>
 	</view>
 </view>
-<!-- <rich-text nodes="{{content}}"></rich-text> -->
+<!-- 文章 -->
 <import src="../../wxParse/wxParse.wxml" />
-<view class="title">{{articleDetail.title}}</view>
-<view class="author" bindtap="toAuthor" data-target="Modal">{{articleDetail.author}}</view>
-<view class="content">
-	<template is="wxParse" data="{{wxParseData:content.nodes}}" />
+<view style="height:calc(100vh - 220rpx)">
+	<view class="title">{{articleDetail.title}}</view>
+	<view class="author" bindtap="toAuthor" data-target="Modal">{{articleDetail.author}}</view>
+	<view class="content">
+		<template is="wxParse" data="{{wxParseData:content.nodes}}" />
+	</view>
 </view>
+<!-- 评论列表 -->
 
+<!-- 评论 -->
 <view class="cu-bar foot input {{InputBottom!=0?'cur':''}}" style="bottom:{{InputBottom}}px">
 	<view class="action">
 		<text class="cuIcon-sound text-grey"></text>
